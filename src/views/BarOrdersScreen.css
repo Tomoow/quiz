@@ -1,0 +1,199 @@
+/* Bar Orders screen – uses design system OrderCard. Timeline on desktop, stacked on mobile. */
+
+/* Header row: title + segmented buttons on same line (desktop); wrap on mobile. */
+.bar-orders__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--padding-default);
+  margin-bottom: var(--padding-default);
+}
+
+.bar-orders__title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-highlight);
+  color: var(--text-neutral-default);
+  flex-shrink: 0;
+}
+
+.bar-orders__subtitle {
+  margin: 0 0 var(--padding-large);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-highlight);
+  color: var(--text-neutral-default);
+  text-align: center;
+}
+
+.bar-orders__search {
+  margin-bottom: var(--padding-large);
+  width: 100%;
+}
+
+.bar-orders__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-large);
+}
+
+/* Desktop: timeline – vertical line in center, cards alternate left/right with connectors. */
+.bar-orders__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bar-orders__timeline-track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background-color: var(--border-action-default);
+  pointer-events: none;
+}
+
+.bar-orders__timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  min-height: 120px;
+  padding: var(--padding-large) 0;
+}
+
+.bar-orders__timeline-side {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  max-width: 50%;
+}
+
+.bar-orders__timeline-side--left {
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
+.bar-orders__timeline-side--right {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.bar-orders__timeline-card-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  justify-content: stretch;
+}
+
+.bar-orders__timeline-card-wrap .order-card {
+  flex: 1;
+  min-width: 0;
+}
+
+.bar-orders__timeline-connector {
+  flex-shrink: 0;
+  width: var(--padding-default);
+  height: 2px;
+  background-color: var(--border-action-default);
+}
+
+.bar-orders__timeline-side--left .bar-orders__timeline-connector {
+  order: 2;
+  margin-left: 0;
+}
+
+.bar-orders__timeline-side--right .bar-orders__timeline-connector {
+  order: 0;
+  margin-right: 0;
+}
+
+.bar-orders__timeline-node {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin: 0 var(--padding-x-small);
+  border-radius: 50%;
+  background-color: var(--border-action-default);
+  border: 2px solid var(--bg-neutral-default);
+  box-sizing: border-box;
+}
+
+/* Mobile: stack cards, hide timeline. */
+@media (max-width: 768px) {
+  .bar-orders__timeline-track,
+  .bar-orders__timeline-connector,
+  .bar-orders__timeline-node {
+    display: none;
+  }
+
+  .bar-orders__timeline-row {
+    display: block;
+    min-height: 0;
+    padding: 0 0 var(--padding-large);
+  }
+
+  .bar-orders__timeline-row:last-child {
+    padding-bottom: 0;
+  }
+
+  .bar-orders__timeline-side {
+    max-width: none;
+  }
+
+  .bar-orders__timeline-side--left,
+  .bar-orders__timeline-side--right {
+    justify-content: stretch;
+    padding: 0;
+  }
+
+  .bar-orders__timeline-card-wrap {
+    max-width: none;
+  }
+
+  /* Show card in the side that has it; hide the empty side's spacer. */
+  .bar-orders__timeline-side:empty {
+    display: none;
+  }
+
+  .bar-orders__timeline-side--left:not(:empty),
+  .bar-orders__timeline-side--right:not(:empty) {
+    display: block;
+  }
+}
+
+/* Bar sub-nav: Segmented buttons – right-aligned on desktop, full width on mobile. */
+.bar-orders__sub-nav {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.bar-orders__sub-nav .segmented-buttons {
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .bar-orders__sub-nav {
+    margin-left: 0;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .bar-orders__sub-nav .segmented-buttons {
+    flex: 1;
+    width: 100%;
+    display: flex;
+  }
+
+  .bar-orders__sub-nav .segmented-buttons__segment {
+    flex: 1;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,94 @@
+/* Team selection: "Create a new order" – title, search, grid of team cards. */
+
+.team-selection {
+  margin-bottom: var(--padding-x-large);
+}
+
+.team-selection__title {
+  margin: 0 0 var(--padding-small);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-highlight);
+  line-height: var(--line-height-default-xl);
+  color: var(--text-neutral-default);
+}
+
+.team-selection__label {
+  margin: 0 0 var(--padding-default);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-default);
+  line-height: var(--line-height-default-md);
+  color: var(--text-neutral-subtle);
+}
+
+.team-selection__search {
+  margin-bottom: var(--padding-x-large);
+}
+
+.team-selection__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--padding-large);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team-selection__card-wrap {
+  min-width: 0;
+}
+
+/* Card: icon (group) + title + subtitle + add button on one row. */
+.team-selection__card {
+  display: flex;
+  align-items: center;
+  gap: var(--padding-default);
+  padding: var(--padding-large);
+  border-radius: var(--radius-container);
+  background-color: var(--bg-neutral-default);
+  border: var(--border-default) solid var(--border-default-subtle);
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.team-selection__card-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-primary-subtle-default);
+  color: var(--icon-primary-brand);
+}
+
+.team-selection__card-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.team-selection__card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.team-selection__card-title {
+  margin: 0 0 2px;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-highlight);
+  line-height: var(--line-height-default-md);
+  color: var(--text-neutral-default);
+}
+
+.team-selection__card-subtitle {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-default);
+  line-height: var(--line-height-default-sm);
+  color: var(--text-neutral-subtle);
+}

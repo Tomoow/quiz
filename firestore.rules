@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Quiz PWA: orders, menu, and tables. Tighten for production (e.g. restrict writes by request.auth).
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+    match /menu/{menuId} {
+      allow read, write: if true;
+    }
+    match /tables/{tableId} {
+      allow read, write: if true;
+    }
+  }
+}

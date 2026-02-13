@@ -1,0 +1,93 @@
+/*
+ * Order Taking: "Make a selection" layout. Desktop: max-width content; mobile: full width, sticky footer.
+ */
+
+.order-taking {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: var(--padding-x-large);
+}
+
+.order-taking__title {
+  margin: 0 0 var(--padding-small);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-highlight);
+  line-height: var(--line-height-default-xl);
+  color: var(--text-neutral-default);
+}
+
+.order-taking__for-table {
+  margin: 0 0 var(--padding-default);
+  font-size: var(--font-size-sm);
+  color: var(--text-neutral-subtle);
+}
+
+.order-taking__header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--padding-default);
+  flex-wrap: wrap;
+  margin-bottom: var(--padding-default);
+}
+
+.order-taking__header-row--below-title {
+  margin-top: 0;
+}
+
+.order-taking__subtitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-neutral-subtle);
+}
+
+.order-taking__section {
+  margin-bottom: var(--padding-x-large);
+}
+
+.order-taking__section-title {
+  margin: 0 0 var(--padding-default);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-highlight);
+  line-height: var(--line-height-default-md);
+  color: var(--text-neutral-default);
+}
+
+/* Footer: summary + Confirm button. Sticky on mobile. */
+.order-taking__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-default);
+  margin-top: var(--padding-large);
+  padding-top: var(--padding-large);
+  border-top: var(--border-default) solid var(--border-default-subtle);
+}
+
+.order-taking__confirm-btn {
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .order-taking__footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: calc(-1 * var(--screen-margin-mobile, 16px));
+    margin-right: calc(-1 * var(--screen-margin-mobile, 16px));
+    margin-bottom: calc(-1 * var(--padding-x-large));
+    padding: var(--padding-default) var(--screen-margin-mobile, 16px);
+    padding-bottom: calc(var(--padding-default) + env(safe-area-inset-bottom, 0));
+    background-color: var(--bg-neutral-default);
+    border-top: var(--border-default) solid var(--border-default-subtle);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .order-taking__confirm-btn {
+    align-self: stretch;
+    width: 100%;
+  }
+}

@@ -1,0 +1,325 @@
+/* Header: bar full viewport width; inner content max 1440px with 120px padding (content 1200px). */
+.app__header-wrapper {
+  position: relative;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.app__header-wrapper .header__inner {
+  max-width: 1440px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app__header-wrapper .header__inner {
+    padding-left: var(--screen-margin-tablet);
+    padding-right: var(--screen-margin-tablet);
+  }
+}
+
+/* Shell: max-width 1440px, 120px padding each side (content area 1200px). Main content only. */
+.app__shell {
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--padding-large) var(--screen-margin-desktop, 120px);
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .app__shell {
+    padding-left: var(--screen-margin-mobile, 16px);
+    padding-right: var(--screen-margin-mobile, 16px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app__shell {
+    padding-left: var(--screen-margin-tablet, var(--screen-margin-desktop, 120px));
+    padding-right: var(--screen-margin-tablet, var(--screen-margin-desktop, 120px));
+  }
+}
+
+.app__main {
+  box-sizing: border-box;
+  padding-top: var(--padding-large);
+}
+
+.app__logo-btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  height: 40px;
+  max-width: 120px;
+  flex-shrink: 0;
+}
+
+.app__logo-btn:focus-visible {
+  outline: var(--border-active) solid var(--border-action-focus);
+  outline-offset: 2px;
+}
+
+.app__logo-img {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Account dropdown: under header, aligned with right edge of header inner. */
+.app__account-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: max(var(--screen-margin-desktop, 120px), (100vw - 1440px) / 2);
+  z-index: 1000;
+  min-width: 10rem;
+  padding: var(--padding-x-small);
+  background: var(--bg-neutral-elevated);
+  border: var(--border-default) solid var(--border-default-default);
+  border-radius: var(--radius-overlay);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app__account-dropdown {
+    right: var(--screen-margin-tablet);
+  }
+}
+
+@media (max-width: 768px) {
+  .app__account-dropdown {
+    right: var(--screen-margin-mobile, 16px);
+  }
+}
+
+.app__account-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--padding-small);
+  width: 100%;
+  padding: var(--padding-default) var(--padding-large);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-default);
+  color: var(--text-neutral-default);
+  background: none;
+  border: none;
+  border-radius: var(--radius-soft);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.app__account-dropdown-item:hover {
+  background: var(--bg-primary-subtle-hover);
+  color: var(--text-primary-brand);
+}
+
+.app__account-dropdown-item--destructive {
+  color: var(--text-error-default);
+}
+
+.app__account-dropdown-item--destructive:hover {
+  background: var(--bg-error-subtle);
+  color: var(--text-error-default);
+}
+
+.app__account-dropdown-item:focus-visible {
+  outline: var(--border-active) solid var(--border-action-focus);
+  outline-offset: 2px;
+}
+
+.app__account-dropdown-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: inherit;
+}
+
+.app__account-dropdown-item--destructive .app__account-dropdown-icon {
+  color: var(--icon-error-default);
+}
+
+.app__content {
+  margin-top: var(--padding-default);
+}
+
+/* Order taking: "Change table" row when coming from team selection */
+.order-taking__change-table {
+  margin: 0 0 var(--padding-default);
+  font-size: var(--font-size-sm);
+  color: var(--text-neutral-subtle);
+}
+
+.order-taking__for-table {
+  margin: 0 0 var(--padding-default);
+  font-size: var(--font-size-sm);
+  color: var(--text-neutral-subtle);
+}
+
+/* Section spacing */
+.section {
+  margin-bottom: var(--padding-x-large);
+}
+
+.section__title {
+  margin: 0 0 var(--padding-default);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-highlight);
+  color: var(--text-neutral-default);
+}
+
+/* Cart / order list */
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding-small) 0;
+  border-bottom: 1px solid var(--border-default-default);
+  gap: var(--padding-default);
+}
+
+.cart-list__item:last-child {
+  border-bottom: none;
+}
+
+.cart-total {
+  margin-top: var(--padding-default);
+  padding-top: var(--padding-default);
+  border-top: 2px solid var(--border-default-default);
+  font-weight: var(--font-weight-highlight);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Order list (bar view) */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-default);
+}
+
+/* Team picker (staff) */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-small);
+}
+
+.team-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--padding-default);
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-default-default);
+  background: var(--bg-neutral-default);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.team-card:hover {
+  background: var(--bg-neutral-alt);
+}
+
+.team-card__name {
+  font-weight: var(--font-weight-highlight);
+  color: var(--text-neutral-default);
+}
+
+.team-card__table {
+  font-size: var(--font-size-sm);
+  color: var(--text-neutral-subtle);
+}
+
+/* Quantity stepper – large tap targets */
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--padding-small);
+}
+
+.stepper__value {
+  min-width: 2ch;
+  text-align: center;
+  font-weight: var(--font-weight-highlight);
+}
+
+/* Menu item row (name, price, points badge, stepper) */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--padding-default);
+  padding: var(--padding-default) 0;
+  border-bottom: 1px solid var(--border-default-subtle);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item__info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--padding-small);
+  min-width: 0;
+}
+
+.menu-item__label {
+  flex: 1;
+  min-width: 0;
+  font-weight: var(--font-weight-default);
+  color: var(--text-neutral-default);
+}
+
+.menu-item__price {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--padding-x-small);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary-brand);
+}
+
+.menu-item__price-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* Order summary (Order Taking screen) */
+.order-summary__line {
+  margin: 0 0 var(--padding-small);
+  font-size: var(--font-size-sm);
+  color: var(--text-neutral-default);
+}
+
+.order-summary__totals {
+  font-weight: var(--font-weight-highlight);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: var(--padding-x-large);
+  color: var(--text-neutral-subtle);
+  font-size: var(--font-size-sm);
+}

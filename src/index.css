@@ -1,0 +1,25 @@
+/* Minimal reset; design system tokens and components provide the rest */
+html {
+  /* Reserve space for scrollbar so layout doesn't shift when content becomes scrollable */
+  scrollbar-gutter: stable;
+}
+
+:root {
+  font-family: var(--font-family-body), system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-neutral-default);
+  background-color: var(--bg-neutral-default);
+  /* Tablet (769px–1024px): reduced side margin; fallback if design system token not loaded */
+  --screen-margin-tablet: 3.75rem; /* 60px */
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
